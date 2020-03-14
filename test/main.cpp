@@ -1,4 +1,5 @@
 #include <iostream>
+
 #include "scalar.h"
 #include "vector.h"
 #include "matrix.h"
@@ -41,7 +42,22 @@ int main(int argc, const char *argv[])
   std::cout << (v2 * c1) << std::endl;
   std::cout << (v2 - c1) << std::endl;
 
-  Matrix m(2, 3, 10);
+  Matrix m(2, 3);
+  Matrix m1(2, 3);
+
+  for (int i = 0; i < 2; i++) {
+    for (int j = 0; j < 3; j++) {
+      m.set(i, j, (i + 1) * (j + 1));
+    }
+  }
   std::cout << m << std::endl;
+  std::cout << m1 << std::endl;
+  std::cout << m + m1  << std::endl;
+  std::cout << m - m1  << std::endl;
+  std::cout << (m + c1) << std::endl;
+  std::cout << (m - c1) << std::endl;
+  std::cout << (m * c1) << std::endl;
+
+  std::cout << m.transpose() << std::endl;
   return 0;
 }

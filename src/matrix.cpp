@@ -1,4 +1,6 @@
 #include "matrix.h"
+#include "scalar.h"
+#include "vector.h"
 
 Matrix::Matrix() {
   m_m = 0;
@@ -34,3 +36,52 @@ Matrix::~Matrix() {
 };
 
 
+Matrix Matrix::operator+(const Matrix& other){
+  Matrix m(other.M(), other.N());
+  for (int i = 0; i < other.M(); i++) {
+    for (int j = 0; j < other.N(); j++) {
+      m.set(i, j, this->at(i, j) + other.at(i, j));
+    }
+  }
+  return m;
+};
+
+Matrix Matrix::operator-(const Matrix& other){
+  Matrix m(other.M(), other.N());
+  for (int i = 0; i < other.M(); i++) {
+    for (int j = 0; j < other.N(); j++) {
+      m.set(i, j, this->at(i, j) - other.at(i, j));
+    }
+  }
+  return m;
+};
+
+Matrix Matrix::operator+(const Scalar& other){
+  Matrix m(this->M(), this->N());
+  for (int i = 0; i < this->M(); i++) {
+    for (int j = 0; j < this->N(); j++) {
+      m.set(i, j, this->at(i, j) * other.value());
+    }
+  }
+  return m;
+};
+
+Matrix Matrix::operator-(const Scalar& other){
+  Matrix m(this->M(), this->N());
+  for (int i = 0; i < this->M(); i++) {
+    for (int j = 0; j < this->N(); j++) {
+      m.set(i, j, this->at(i, j) - other.value());
+    }
+  }
+  return m;
+};
+
+Matrix Matrix::operator*(const Scalar& other){
+  Matrix m(this->M(), this->N());
+  for (int i = 0; i < this->M(); i++) {
+    for (int j = 0; j < this->N(); j++) {
+      m.set(i, j, this->at(i, j) * other.value());
+    }
+  }
+  return m;
+};

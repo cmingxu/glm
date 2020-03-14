@@ -1,5 +1,6 @@
 #include <ostream>
 #include <iostream>
+#include "scalar.h"
 
 class Matrix
 {
@@ -17,8 +18,12 @@ class Matrix
     };
 
     inline float at(size_t m, size_t n) const {
-      return m_elements[m * m_m + n];
+      return m_elements[m * m_n + n];
     };
+
+    inline void set(size_t m, size_t n, const float value) const {
+      m_elements[m * this->m_n + n] = value;
+    }
 
     inline size_t M() const {
       return m_m;
@@ -43,16 +48,20 @@ class Matrix
 
     // matrix transpose
     Matrix transpose() {
-      Matrix m;
-      m.m_elements = new float[this->m_m * this->m_n];
-      for (int i = 0; i < this->m_m; i++) {
-        for (int j = 0; j < this->m_n; j++) {
-          m.m_elements[j * this->m_n + i] = this->m_elements[i * this->m_m + j];
+      Matrix m(this->N(), this->M());
+      for (int i = 0; i < m.M(); i++) {
+        for (int j = 0; j < m.N(); j++) {
+          m.set(i, j,  this->at(j, i));
         }
       }
       return m;
     }
 
+    Matrix operator+(const Matrix& other);
+    Matrix operator-(const Matrix& other);
+    Matrix operator+(const Scalar& other);
+    Matrix operator-(const Scalar& other);
+    Matrix operator*(const Scalar& scalar);
   protected:
     size_t m_m;
     size_t m_n;
