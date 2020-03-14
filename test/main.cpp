@@ -1,5 +1,6 @@
 #include <iostream>
 #include "scalar.h"
+#include "vector.h"
 
 int main(int argc, const char *argv[])
 {
@@ -23,5 +24,11 @@ int main(int argc, const char *argv[])
   std::cout << s * 100 << std::endl;
   std::cout << c1 * 100 << std::endl;
   std::cout << c1 / 100 << std::endl;
+
+  Vector2 v2(1,2);
+  std::cout << v2.size() << std::endl;
+  std::cout << v2[0] << std::endl;
+  std::cout << v2[1] << std::endl;
+  std::cout << v2 << std::endl;
   return 0;
 }
