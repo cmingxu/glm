@@ -1,6 +1,7 @@
 #include <iostream>
 #include "scalar.h"
 #include "vector.h"
+#include "matrix.h"
 
 int main(int argc, const char *argv[])
 {
@@ -39,5 +40,8 @@ int main(int argc, const char *argv[])
 
   std::cout << (v2 * c1) << std::endl;
   std::cout << (v2 - c1) << std::endl;
+
+  Matrix m(2, 3, 10);
+  std::cout << m << std::endl;
   return 0;
 }

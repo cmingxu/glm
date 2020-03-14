@@ -6,6 +6,14 @@ Vector2::Vector2(const float e1, const float e2) {
   m_elements[1] = e2;
 };
 
+Vector2 Vector2::zero(){
+  return Vector2(0, 0);
+};
+
+Vector2 Vector2::ones(){
+  return Vector2(1, 1);
+};
+
 Vector2 Vector2::operator+(const Vector2& other){
   return Vector2((*this)[0] + other[0], (*this)[1] + other[1]);
 };
@@ -21,6 +29,7 @@ Vector2 Vector2::operator+(const Scalar& other){
 Vector2 Vector2::operator-(const Scalar& other){
   return Vector2((*this)[0] - other.value(), (*this)[1] - other.value());
 };
+
 Vector2 Vector2::operator*(const Scalar& other){
   return Vector2((*this)[0] * other.value(), (*this)[1] * other.value());
 };

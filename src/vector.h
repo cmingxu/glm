@@ -33,6 +33,9 @@ class Vector
 // vector with 2 element
 class Vector2 : public Vector{
   public:
+    static Vector2 zero();
+    static Vector2 ones();
+
     Vector2(const float e1, const float e2);
 
     Vector2 operator+(const Vector2& other);
