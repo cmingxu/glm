@@ -62,6 +62,15 @@ class Matrix
     Matrix operator+(const Scalar& other);
     Matrix operator-(const Scalar& other);
     Matrix operator*(const Scalar& scalar);
+
+    // static method
+    //static Matrix translate(){};
+    //static Matrix scale(){};
+    //static Matrix rotate(){};
+    //static Matrix perpective(){};
+    //static Matrix orth(){};
+    //static Matrix lookat(){};
+
   protected:
     size_t m_m;
     size_t m_n;
