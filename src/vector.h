@@ -1,4 +1,9 @@
 #include <ostream>
+#include "scalar.h"
+
+#ifndef VECTOR_H
+#define VECTOR_H
+
 
 class Vector
 {
@@ -11,9 +16,9 @@ class Vector
     };
 
 
-    inline float operator[](unsigned index){
-      if(index >= 0 && index < sizeof(m_elements)){
-         return m_elements[index];
+    inline float operator[](unsigned index) const{
+      if(index >= 0 && index < this->size()){
+        return m_elements[index];
       }
 
       return -1;
@@ -29,6 +34,13 @@ class Vector
 class Vector2 : public Vector{
   public:
     Vector2(const float e1, const float e2);
+
+    Vector2 operator+(const Vector2& other);
+    Vector2 operator-(const Vector2& other);
+
+    Vector2 operator+(const Scalar& other);
+    Vector2 operator-(const Scalar& other);
+    Vector2 operator*(const Scalar& scalar);
 };
 
 // vector with 3 element
@@ -42,3 +54,4 @@ class Vector4 : public Vector{
   public:
     Vector4(const float e1, const float e2, const float e3, const float e4);
 };
+#endif /* end of include guard: VECTOR_H */

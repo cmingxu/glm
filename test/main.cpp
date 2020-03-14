@@ -30,5 +30,14 @@ int main(int argc, const char *argv[])
   std::cout << v2[0] << std::endl;
   std::cout << v2[1] << std::endl;
   std::cout << v2 << std::endl;
+
+  Vector2 secondV2(2, 3);
+  std::cout << secondV2 << std::endl;
+
+  std::cout << (secondV2 + v2) << std::endl;
+  std::cout << (secondV2 - v2) << std::endl;
+
+  std::cout << (v2 * c1) << std::endl;
+  std::cout << (v2 - c1) << std::endl;
   return 0;
 }
